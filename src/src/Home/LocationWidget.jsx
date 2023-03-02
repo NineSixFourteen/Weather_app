@@ -1,28 +1,37 @@
 import React from "react";
 import { styled } from "nativewind";
-import { Text, View, ScrollView } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import SmallLocation from "./SmallLocation";
+import WeatherFac from "./WeatherFactory";
 const StyledView = styled(View);
 const StyledText = styled(Text); 
 const StyledScroll = styled(ScrollView)
+const StyledButton = styled(TouchableOpacity)
 
 const LocationWidget = props  => {
-        let tilte = props.Title == undefined ? props.Location : props.Title + ": " + props.Location 
+        let title = props.Title == undefined ? props.Location : props.Title + ": " + props.Location 
+        title = props.Title != undefined && props.Title.length >= 7 ? props.Title : title;  
+        if(title.length > 10 ){
+            title = title.substring(0,10) + ".."
+        }
+        let style = "text-5xl my-4 text-white";
         return(
-            <StyledView className="my-5 mx-3 text-center items-center  bg-sky-700 rounded">
-            <StyledText className="my-1 text-4xl font-bold tracking-tight text-white dark:text-white"> {tilte} </StyledText>
-            <StyledView className="flex-row ">
-                <StyledView className="">
-                    <StyledText className="text-6xl text-white my-8">{props.Temperature}</StyledText>
+            <StyledView className="my-2 mx-3 text-center  bg-sky-700 rounded">
+                <StyledButton className="flex-row row-span-2 place-items-stretch" onPress={() => {props.Func()}}>
+                    <StyledText className="my-1 text-5xl font-bold tracking-tight text-white dark:text-white flex-1"> {title}</StyledText>
+                    <StyledText  className="my-1 text-4xl font-bold tracking-tight text-stone-300 dark:text-white flex-3">{props.Time} </StyledText>
+                </StyledButton>
+            <StyledView className="flex-row">
+                <StyledView className="m-0 p-0 flex-1" >
+                <WeatherFac type={props.Weather} size={110} />
                 </StyledView>
-                <StyledView>
-                    <MaterialCommunityIcons name="weather-cloudy" color={'white'}  size={120} selectionColor/>
+                <StyledView className="flex-2 my-4">
+                    <StyledText className={style}>{props.Temperature + "°C"}</StyledText>
                 </StyledView>
-                <StyledView className="flex-col my-5">
-                    <StyledText className="text-xl font-bold text-white">Precipitation:{props.Prec}%</StyledText>
-                    <StyledText className="text-xl font-bold text-white">Humidity:{props.Hum}%</StyledText>
-                    <StyledText className="text-xl font-bold text-white">Wind:{props.Wind}mph</StyledText>
+                <StyledView className="flex-col my-2 flex-3" >
+                    <StyledText className="text-xl font-bold text-stone-300"> Precipitation:{props.Prec}%</StyledText>
+                    <StyledText className="text-xl font-bold text-stone-300"> Humidity:{props.Hum}%</StyledText>
+                    <StyledText className="text-xl font-bold text-stone-300"> Wind:{props.Wind}mph</StyledText>
                 </StyledView>
             </StyledView>
             <StyledScroll horizontal={true} className="px-1 flex-row space-x-2"> 

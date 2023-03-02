@@ -11,7 +11,7 @@ const SmallLocation = props  => {
     return (
         <StyledView>
             <StyledText className="text-xl font-bold text-white"> {props.Time}</StyledText>
-            <WeatherFac type={props.Weather}/>
+            <WeatherFac type={props.Weather} size={50} />
         </StyledView>
     )
 }; 

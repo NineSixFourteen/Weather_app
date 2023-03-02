@@ -26,7 +26,7 @@ export default function App() {
             tabBarColor:'#202020',
             tabBarBadge:"",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="weather-cloudy" color={color} size={26} selectionColor/>
+              <MaterialCommunityIcons name="weather-cloudy" color={color} size={26}/>
             ),
         }}/>
         <Tab.Screen name="Drying" component={Dry}      
