@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "nativewind";
 import { Text, View, ScrollView} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import SmallLocation from "../Home/SmallLocation";
+import SmallLocation from "../Home/Widgets/SmallLocation";
 const StyledView = styled(View);
 const StyledText = styled(Text); 
 const StyledScroll = styled(ScrollView)

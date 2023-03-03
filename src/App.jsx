@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Home from "./src/Home/Home"
+import WeatherPage from "./src/Home/Pages/WeatherPage"
 import Dry from "./src/Dry/Dry"
 import Settings from "./src/Settings/Setting"
 
@@ -20,7 +20,7 @@ export default function App() {
         style={{ borderColor: 'green' }}
         shifting={false}
         >
-        <Tab.Screen name="Weather" component={Home} 
+        <Tab.Screen name="Weather" component={WeatherPage} 
           options={{
             tabBarLabel: 'Weather',
             tabBarColor:'#202020',
