@@ -55,6 +55,6 @@ const WeekHelp = props => {
 
 const HourlyHelp = props => {
     return(
-        <HourlyWeather nav={props.HourlyWeather}/>
+        <HourlyWeather nav={props.navigation}/>
     )
 }

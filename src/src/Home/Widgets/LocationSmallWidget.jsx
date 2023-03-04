@@ -7,6 +7,7 @@ const StyledText = styled(Text);
 const StyledButton = styled(TouchableOpacity)
 
 const LocationSmallWidget = props  => {
+        
         let title = props.Title ? props.Title : props.Location;
         if(title.length > 7){
             title = title.substring(0,7) + "..";

@@ -6,6 +6,7 @@ const StyledView = styled(View);
 const StyledScroll = styled(ScrollView)
 
 const WeekWeather = props => {
+    console.log(props.nav.getState().routes[1].params)
     return(
         <StyledScroll className="bg-neutral-900 ">
             <StyledView className="my-5">

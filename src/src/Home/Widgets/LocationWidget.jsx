@@ -10,7 +10,7 @@ const StyledButton = styled(TouchableOpacity)
 
 const LocationWidget = (props)  => {
         let title = props.Title == undefined ? props.Location : props.Title;
-        let func = props.Nav ? () => {props.Nav.navigate('Week')} : () => {}
+        let func = props.Nav ? () => {props.Nav.navigate('Week', {location:title, title:"Nice",});} : () => {}
         if(title.length > 10 ){
             title = title.substring(0,10) + ".."
         }
@@ -38,17 +38,17 @@ const LocationWidget = (props)  => {
                 </StyledView>
             </StyledButton>
             <StyledScroll horizontal={true} className="px-1 flex-row space-x-2"> 
-                <SmallLocation Weather={"Sunny"} Time={"8:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Raining"} Time={"9:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Heavy Rain"} Time={"10:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Cloudy"} Time={"11:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Lightning"} Time={"12:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Hail"} Time={"13:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Windy"} Time={"14:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Snow"} Time={"15:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Windy"} Time={"16:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Windy"} Time={"17:00"} Nav={props.Nav}/>
-                <SmallLocation Weather={"Windy"} Time={"18:00"} Nav={props.Nav}/>
+                <SmallLocation Weather={"Sunny"} Time={"8:00"} Nav={props.Nav} Location={title} />
+                <SmallLocation Weather={"Raining"} Time={"9:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Heavy Rain"} Time={"10:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Cloudy"} Time={"11:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Lightning"} Time={"12:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Hail"} Time={"13:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Windy"} Time={"14:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Snow"} Time={"15:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Windy"} Time={"16:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Windy"} Time={"17:00"} Nav={props.Nav} Location={title}/>
+                <SmallLocation Weather={"Windy"} Time={"18:00"} Nav={props.Nav} Location={title}/>
                 <StyledText> </StyledText>
             </StyledScroll>
         </StyledView>
