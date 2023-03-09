@@ -5,7 +5,7 @@ import LocationWidget from "./LocationWidget";
 const LocWidget = props => { 
     const [widget, toggleWidget] = useState(true);
 
-    let func = () => {
+    let func = async () => { 
         toggleWidget(!widget)
     }
     if (!widget) {
