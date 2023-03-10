@@ -67,8 +67,7 @@ const WeatherHelp = props => {
             const value = await AsyncStorage.getItem('Locations');
             if (value !== null) {
                 setLoading(false);
-                setData(value.split(", ")) 
-                console.log(value)
+                setData(value.split(", "))  
             } else {
                 console.log("PeePee")
             }

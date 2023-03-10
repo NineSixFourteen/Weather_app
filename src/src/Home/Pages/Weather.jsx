@@ -19,29 +19,35 @@ const Weathers = props => {
         list.forEach(element => {
             bod.push(<LoadWid Nav={props.navigation} Title={element}  />)
         });
+        return bod;
     }
-
     const [bo, setBo] = useState([]);
+    useEffect(() => {
+        setBo(convert(props.list));
+    }, [])
 
     const addlocation = async () => {
-        try {
+        try { 
             const value = await AsyncStorage.getItem('Locations'); 
             if (value !== null) { 
                 const dasd =  value + ", " + text;
                 AsyncStorage.setItem('Locations',dasd);
-                bod.push(<LoadWid Nav={props.navigation} Title={value}  />);
-                setBo(bod);
+                setBo([...bo, <LoadWid Nav={props.navigation} Title={text} key={text} />])
               } else { 
                 console.log("PeePee")
             }
         } catch (error) { 
-        
+         
         }
     }
+    bo.forEach(element => {
+        console.log(element)
+    }
+    )
     return(
         <StyledScroll className="bg-neutral-900 ">
             <StyledView className="my-5"> 
-                {convert(props.list)}
+                {bo}
                 <StyledButton 
                     onPress={() => {setShow(true)}}
                     className="bg-blue-900 mx-3 my-4" 
@@ -56,7 +62,7 @@ const Weathers = props => {
                     <Dialog.Input onChangeText={e => setText(e)}> </Dialog.Input>
                     <Dialog.Button label="OK" onPress={() => {setShow(false); addlocation()}} />
                     <Dialog.Button label="Cancel" onPress={() => setShow(false)} />
-                    </Dialog.Container>
+                    </Dialog.Container>  
             </StyledView> 
         </StyledScroll>
     )
